@@ -1,0 +1,13 @@
+<launch>
+    <!-- 设置地图的配置文件 -->
+    <arg name="map" default="testmap.yaml" />
+    <!-- 运行地图服务器，并且加载设置的地图-->
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find slam_tool)/map/$(arg map)"/>
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" clear_params="true">
+        <rosparam file="$(find slam_tool)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find slam_tool)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find slam_tool)/config/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find slam_tool)/config/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find slam_tool)/config/base_local_planner_params.yaml" command="load" />
+    </node>
+</launch>

@@ -1,0 +1,34 @@
+<!-- <launch>
+
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" clear_params="true">
+        <rosparam file="$(find slam_tool)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find slam_tool)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find slam_tool)/config/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find slam_tool)/config/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find slam_tool)/config/base_local_planner_params.yaml" command="load" />
+    </node>
+
+</launch> -->
+
+<launch>
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find slam_tool)/my_config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find slam_tool)/my_config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find slam_tool)/my_config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find slam_tool)/my_config/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find slam_tool)/my_config/teb_local_planner_params.yaml" command="load" />
+    
+    <param name="base_global_planner" value="global_planner/GlobalPlanner" />
+    <!--<param name="neutral_cost" value="220" />-->
+    <param name="planner_frequency" value="3.0" />
+    <param name="planner_patience" value="5.0" />
+    <param name="use_dijkstra" value="false" />
+    
+    <!-- <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+    <param name="controller_frequency" value="20.0" />
+    <param name="controller_patience" value="15.0" /> -->
+
+    <param name="clearing_rotation_allowed" value="false" />
+    <!-- <remap from="/cmd_vel" to="/" /> -->
+  </node>
+</launch> 

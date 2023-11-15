@@ -1,0 +1,10 @@
+<launch>
+    <!-- 将 urdf 文件内容设置进参数服务器 -->
+    <param name="robot_description" textfile="$(find simple_robot)/urdf/simple_robot.urdf" />
+
+    <!-- 启动机器人状态和关节状态发布节点 -->
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />
+
+
+</launch>

@@ -1,0 +1,27 @@
+<robot name="test_poll">
+    
+  
+    <!-- 描述雷达的尺寸大小、颜色 -->
+    <link name="camera_init">
+      <visual>
+        <geometry>
+          <cylinder length="0.05" radius="0.05" />
+        </geometry>
+      </visual>
+    </link>
+    <!-- 描述雷达的尺寸大小、颜色 -->
+    <link name="base_link">
+        <visual>
+            <geometry>
+            <cylinder length="0.1" radius="0.01" />
+            </geometry>
+        </visual>
+    </link>
+    <!-- 描述 雷达和IMU/底盘 的相对位姿 -->
+    <joint name="laser_link_joint" type="fixed">
+      <parent link="camera_init" />
+      <child link="base_link" />
+      <origin xyz="0.0 0.0 0.1"/>
+    </joint>
+  
+  </robot>

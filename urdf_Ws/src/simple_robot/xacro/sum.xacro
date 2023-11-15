@@ -1,0 +1,8 @@
+<!-- 组合小车底盘与摄像头 -->
+<robot name="my_car" xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:include filename="intertial.xacro" />
+    <xacro:include filename="base.xacro" />
+    <xacro:include filename="laser.xacro" />
+    <xacro:include filename="sensor_laser.xacro" />
+    <xacro:include filename="controller.xacro" />
+</robot>
